@@ -34,11 +34,19 @@ namespace UserValidation
             bool Email = validate.EmailValidate(email);
             validate.Result(Email);
             
-            //Validating Email
+            //Validating Mobile Number
             Console.WriteLine("Enter the mobile number : ");
             string mobile = Console.ReadLine();
             bool MobileNo = validate.MobileNumberValidate(mobile);
             validate.Result(MobileNo);
+            
+            //Validating Password
+            Console.WriteLine("Enter the password : ");
+            string password = Console.ReadLine();
+            bool Password = validate.PasswordValidate(password);
+            validate.Result(Password);
+
+
 
             Console.ReadLine();
         }

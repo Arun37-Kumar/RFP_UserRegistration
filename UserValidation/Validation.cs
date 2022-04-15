@@ -13,6 +13,7 @@ namespace UserValidation
         private string LAST_NAME = "[A-Z][a-z]{3,}";
         private string EMAIL = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]+)?$";
         private string MOBILE_NUMBER = "^[1-9][0-9][ ][1-9][0-9]{9}$";
+        private string PASSWORD = "^[a-zA-Z0-9-+_!@#$%^&*()]{8,}";
 
         //First Name Validate
         public bool FirstNameValidate(string firstName)
@@ -34,6 +35,11 @@ namespace UserValidation
         public bool MobileNumberValidate(string mobileNumber)
         {
             return Regex.IsMatch(mobileNumber,MOBILE_NUMBER);
+        }
+
+        public bool PasswordValidate(string password)
+        {
+            return Regex.IsMatch(password,PASSWORD);
         }
 
         // Printing Result for all cases
