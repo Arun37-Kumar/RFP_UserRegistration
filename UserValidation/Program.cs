@@ -16,10 +16,17 @@ namespace UserValidation
             //Creating Object
             Validation validate = new Validation();
 
+            //Validating First Name
             Console.WriteLine("Enter the First Name : ");
             string firstname = Console.ReadLine();
             bool fName = validate.FirstNameValidate(firstname);
             validate.Result(fName);
+
+            // Validating Last Name
+            Console.WriteLine("Enter the Last Name : ");
+            string lastName = Console.ReadLine();
+            bool lName = validate.FirstNameValidate(lastName);
+            validate.Result(lName);
 
             Console.ReadLine();
         }
