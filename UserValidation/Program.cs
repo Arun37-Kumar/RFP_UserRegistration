@@ -46,6 +46,15 @@ namespace UserValidation
             bool Password = validate.PasswordValidate(password);
             validate.Result(Password);
 
+            //Validate The Multiple Emails
+            Console.WriteLine("Validation check for multiple emails : ");
+            foreach (string emailId in validate.GetList())
+            {
+                Console.WriteLine(emailId);
+                validate.Result(validate.MultipleEmailValidate(emailId));
+            }
+
+
 
 
             Console.ReadLine();

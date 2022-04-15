@@ -17,6 +17,20 @@ namespace UserValidation
         //private string PASSWORD = "^(?=.*[A-Z])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 2
         //private string PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 3
         private string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=[^!@#$%&*+-.]*[!@#$%&*+-.][^!@#$%&*+-.]*$)[\\S]{8,}$"; // Rule 4
+        private string MULTIPLE_EMAIL = "^[a-zA-Z0-9]+([.+-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
+
+        List<string> EMAIL_ID = new List<string>()
+        {
+            "abc@yahoo.com",
+            "abc-100@yahoo.com",
+            "abc.100@yahoo.com",
+            "abc111@abc.com",
+            "abc-100@abc.net",
+            "abc.100@abc.com.au",
+            "abc@1.com",
+            "abc@gmail.com.com",
+            "abc+100@gmail.com"
+        };
 
         //First Name Validate
         public bool FirstNameValidate(string firstName)
@@ -43,6 +57,15 @@ namespace UserValidation
         public bool PasswordValidate(string password)
         {
             return Regex.IsMatch(password,PASSWORD);
+        }
+
+        public bool MultipleEmailValidate(string email)
+        {
+            return Regex.IsMatch(email,MULTIPLE_EMAIL);
+        }
+        public List<string> GetList()
+        {
+            return EMAIL_ID;
         }
 
         // Printing Result for all cases
