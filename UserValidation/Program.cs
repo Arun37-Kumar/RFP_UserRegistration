@@ -28,6 +28,12 @@ namespace UserValidation
             bool lName = validate.FirstNameValidate(lastName);
             validate.Result(lName);
 
+            //Validating Email
+            Console.WriteLine("Enter the email : ");
+            string email = Console.ReadLine();
+            bool Email = validate.FirstNameValidate(email);
+            validate.Result(Email);
+
             Console.ReadLine();
         }
     }
