@@ -31,8 +31,14 @@ namespace UserValidation
             //Validating Email
             Console.WriteLine("Enter the email : ");
             string email = Console.ReadLine();
-            bool Email = validate.FirstNameValidate(email);
+            bool Email = validate.EmailValidate(email);
             validate.Result(Email);
+            
+            //Validating Email
+            Console.WriteLine("Enter the mobile number : ");
+            string mobile = Console.ReadLine();
+            bool MobileNo = validate.MobileNumberValidate(mobile);
+            validate.Result(MobileNo);
 
             Console.ReadLine();
         }
