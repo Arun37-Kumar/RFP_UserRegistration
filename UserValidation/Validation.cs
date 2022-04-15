@@ -15,7 +15,8 @@ namespace UserValidation
         private string MOBILE_NUMBER = "^[1-9][0-9][ ][1-9][0-9]{9}$";
         //private string PASSWORD = "^[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 1
         //private string PASSWORD = "^(?=.*[A-Z])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 2
-        private string PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 3
+        //private string PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 3
+        private string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=[^!@#$%&*+-.]*[!@#$%&*+-.][^!@#$%&*+-.]*$)[\\S]{8,}$"; // Rule 4
 
         //First Name Validate
         public bool FirstNameValidate(string firstName)
