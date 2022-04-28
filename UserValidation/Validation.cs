@@ -7,12 +7,14 @@ using System.Text.RegularExpressions;
 
 namespace UserValidation
 {
-    class Validation
+    public class Validation
     {
         private string FIRST_NAME = "[A-Z][a-z]{3,}";
         private string LAST_NAME = "[A-Z][a-z]{3,}";
         private string EMAIL = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]+)?$";
+
         private string MOBILE_NUMBER = "^[1-9][0-9][ ][1-9][0-9]{9}$";
+
         //private string PASSWORD = "^[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 1
         //private string PASSWORD = "^(?=.*[A-Z])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 2
         //private string PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9-+_!@#$%^&*()]{8,}"; // Rule 3
@@ -28,8 +30,8 @@ namespace UserValidation
             "abc-100@abc.net",
             "abc.100@abc.com.au",
             "abc@1.com",
-            "abc@gmail.com.com",
-            "abc+100@gmail.com"
+            "abc@1.com",
+            "abc@1.com"
         };
 
         //First Name Validate
@@ -51,17 +53,17 @@ namespace UserValidation
 
         public bool MobileNumberValidate(string mobileNumber)
         {
-            return Regex.IsMatch(mobileNumber,MOBILE_NUMBER);
+            return Regex.IsMatch(mobileNumber, MOBILE_NUMBER);
         }
 
         public bool PasswordValidate(string password)
         {
-            return Regex.IsMatch(password,PASSWORD);
+            return Regex.IsMatch(password, PASSWORD);
         }
 
         public bool MultipleEmailValidate(string email)
         {
-            return Regex.IsMatch(email,MULTIPLE_EMAIL);
+            return Regex.IsMatch(email, MULTIPLE_EMAIL);
         }
         public List<string> GetList()
         {
@@ -69,12 +71,19 @@ namespace UserValidation
         }
 
         // Printing Result for all cases
-        public void Result(bool result)
+        public string Result(bool result)
         {
             if (result)
+            {
+
                 Console.WriteLine("Value is valid!");
+                return "Valid";
+            }
             else
+            {
                 Console.WriteLine("Value is invalid!");
+                return "Invalild";
+            }
         }
 
     }
