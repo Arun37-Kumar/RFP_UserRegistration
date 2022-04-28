@@ -111,6 +111,32 @@ namespace UserRegistrationTest
             }
         }
 
+        [TestCategory("Multiple Email Validation ")]
+        [DataRow("abc@yahoo.com", "True")]
+        [DataRow("abc-100@yahoo.com", "True")]
+        [DataRow("abc111@abc.com", "True")]
+        [DataRow("abc-100@abc.net", "True")]
+        [DataRow("abc.100@abc.com.au", "True")]
+        [DataRow("abc@1.com", "True")]
+        [DataRow("abc@1.com", "True")]
+        [DataRow("456789123", "False")]
+        [DataRow("abc@1.com", "True")]
+        [TestMethod]
+        public void MultipleEmail(string input, string expected)
+        {
+            try
+            {
+                UserValidation.Validation validate = new Validation();
+                bool act = validate.MultipleEmailValidate(input);
+                string actual = act.ToString();
+                Assert.AreEqual(actual, expected);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(expected, ex.Message);
+            }
+        }
+
 
     }
 }
