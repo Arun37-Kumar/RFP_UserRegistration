@@ -37,18 +37,27 @@ namespace UserValidation
         //First Name Validate
         public bool FirstNameValidate(string firstName)
         {
-            return Regex.IsMatch(firstName, FIRST_NAME);
+            if (firstName.Equals(""))
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_MESSAGE, "Message cannot be empty");
+            else
+                return Regex.IsMatch(firstName, FIRST_NAME);
         }
 
         //Last Name Validate
         public bool LastNameValidate(string lastName)
         {
-            return Regex.IsMatch(lastName, LAST_NAME);
+            if (lastName.Equals(""))
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_MESSAGE, "Message cannot be empty");
+            else
+                return Regex.IsMatch(lastName, LAST_NAME);
         }
 
         public bool EmailValidate(string email)
         {
-            return Regex.IsMatch(email, EMAIL);
+            if (email.Equals(""))
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_MESSAGE, "Message cannot be empty");
+            else
+                return Regex.IsMatch(email, EMAIL);
         }
 
         public bool MobileNumberValidate(string mobileNumber)
@@ -58,12 +67,18 @@ namespace UserValidation
 
         public bool PasswordValidate(string password)
         {
-            return Regex.IsMatch(password, PASSWORD);
+            if (password.Equals(""))
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_MESSAGE, "Message cannot be empty");
+            else
+                return Regex.IsMatch(password, PASSWORD);
         }
 
         public bool MultipleEmailValidate(string email)
         {
-            return Regex.IsMatch(email, MULTIPLE_EMAIL);
+            if (email.Equals(""))
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_MESSAGE, "Message cannot be empty");
+            else
+                return Regex.IsMatch(email, MULTIPLE_EMAIL);
         }
         public List<string> GetList()
         {

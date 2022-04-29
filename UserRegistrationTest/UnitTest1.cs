@@ -24,7 +24,7 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
@@ -45,7 +45,7 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
@@ -54,7 +54,7 @@ namespace UserRegistrationTest
         [TestCategory("Email Validation")]
         [DataRow("abc@yahoo.com", "True")]
         [DataRow("KUMAR", "False")]
-        [DataRow("", "False")]
+        [DataRow("Message cannot be empty", "False")]
         [TestMethod]
         public void Email(string input, string expected)
         {
@@ -65,7 +65,7 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
@@ -74,7 +74,7 @@ namespace UserRegistrationTest
         [TestCategory("Mobile Number Validation ")]
         [DataRow("91 9876543210", "True")]
         [DataRow("456789123", "False")]
-        [DataRow("", "False")]
+        [DataRow("Message cannot be empty", "False")]
         [TestMethod]
         public void MobileNumber(string input, string expected)
         {
@@ -85,7 +85,7 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
@@ -94,7 +94,7 @@ namespace UserRegistrationTest
         [TestCategory("Password Validation ")]
         [DataRow("abc@123.34", "True")]
         [DataRow("456789123", "False")]
-        [DataRow("", "False")]
+        [DataRow("Message cannot be empty", "False")]
         [TestMethod]
         public void Password(string input, string expected)
         {
@@ -105,7 +105,7 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
@@ -131,12 +131,10 @@ namespace UserRegistrationTest
                 string actual = act.ToString();
                 Assert.AreEqual(actual, expected);
             }
-            catch (Exception ex)
+            catch (UserRegistrationCustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message);
             }
         }
-
-
     }
 }
